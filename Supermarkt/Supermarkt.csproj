@@ -43,8 +43,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Elektronikartikel.cs" />
     <Compile Include="Filiale.cs" />
+    <Compile Include="Haushaltsartikel.cs" />
     <Compile Include="Kunde.cs" />
+    <Compile Include="Lebensmittel.cs" />
     <Compile Include="Mitarbeiter.cs" />
     <Compile Include="Person.cs" />
     <Compile Include="Produkt.cs" />

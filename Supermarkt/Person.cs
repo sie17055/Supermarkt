@@ -12,35 +12,38 @@ namespace Supermarkt
         string firstname;
         string lastname;
         int age;
-        DateTime birthdate;
         string address;
+        int filiale;
 
-        public Person(string id, string firstname, string lastname, int age, DateTime birthdate, string address)
+        public Person(string id, string firstname, string lastname, int age, string address, int filiale)
         {
-            if (id != null)
+            if (string.IsNullOrWhiteSpace(id))
                 Id = id;
             else
                 throw new Exception("Bitte geben Sie eine ID an!");
 
-            if (firstname != null)
+            if (string.IsNullOrWhiteSpace(firstname))
                 Firstname = firstname;
             else
                 throw new Exception("Bitte geben Sie einen Vornamen an!");
 
-            if (lastname != null)
+            if (string.IsNullOrWhiteSpace(lastname))
                 Lastname = lastname;
             else
                 throw new Exception("Bitte geben Sie einen Nachnamen an!");
 
-            if (birthdate != null)
-                Birthdate = birthdate;
-            else
-                throw new Exception("Bitte geben Sie ein Geburtsdatum an!");
+            Age = age;
 
-            if (address != null)
+            if (string.IsNullOrWhiteSpace(address))
                 Address = address;
             else
                 throw new Exception("Bitte geben Sie eine Addresse an!");
+
+            if (filiale > 0)
+                Filiale = filiale;
+            else
+                throw new Exception("Ungültige Filialen-ID!");
+
         }
 
         public string Firstname
@@ -81,20 +84,7 @@ namespace Supermarkt
                 age = value;
             }
         }
-
-        public DateTime Birthdate
-        {
-            get
-            {
-                return birthdate;
-            }
-
-            set
-            {
-                birthdate = value;
-            }
-        }
-
+        
         public string Id
         {
             get
@@ -118,6 +108,19 @@ namespace Supermarkt
             set
             {
                 address = value;
+            }
+        }
+
+        public int Filiale
+        {
+            get
+            {
+                return filiale;
+            }
+
+            set
+            {
+                filiale = value;
             }
         }
     }

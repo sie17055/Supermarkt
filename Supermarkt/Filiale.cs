@@ -17,7 +17,7 @@ namespace Supermarkt
                 FilialID = filialID;
             else
                 throw new Exception("Ungültige ID! (Filiale)");
-            if (address != null)
+            if (string.IsNullOrWhiteSpace(address))
                 Address = address;
             else
                 throw new Exception("Bitte geben Sie eine Addresse ein! (Filiale)");
