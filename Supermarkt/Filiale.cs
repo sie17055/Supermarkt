@@ -10,6 +10,8 @@ namespace Supermarkt
     {
         int filialID;
         string address;
+        List<Mitarbeiter> mitarbeiter = new List<Mitarbeiter>();
+        List<Kunde> kunden = new List<Kunde>();
 
         public Filiale(int filialID, string address)
         {
@@ -46,6 +48,32 @@ namespace Supermarkt
             set
             {
                 address = value;
+            }
+        }
+
+        internal List<Mitarbeiter> Mitarbeiter
+        {
+            get
+            {
+                return mitarbeiter;
+            }
+
+            set
+            {
+                mitarbeiter = value;
+            }
+        }
+
+        internal List<Kunde> Kunden
+        {
+            get
+            {
+                return kunden;
+            }
+
+            set
+            {
+                kunden = value;
             }
         }
     }
