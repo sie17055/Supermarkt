@@ -13,9 +13,9 @@ namespace Supermarkt
         string lastname;
         int age;
         string address;
-        int filiale;
+        Filiale filiale;
 
-        public Person(string id, string firstname, string lastname, int age, string address, int filiale)
+        public Person(string id, string firstname, string lastname, int age, string address, Filiale filiale)
         {
             if (string.IsNullOrWhiteSpace(id))
                 Id = id;
@@ -39,9 +39,7 @@ namespace Supermarkt
             else
                 throw new Exception("Bitte geben Sie eine Addresse an!");
 
-            if (filiale > 0)
-                Filiale = filiale;
-            else
+            if (filiale == null)
                 throw new Exception("Ungültige Filialen-ID!");
 
         }
@@ -108,19 +106,6 @@ namespace Supermarkt
             set
             {
                 address = value;
-            }
-        }
-
-        public int Filiale
-        {
-            get
-            {
-                return filiale;
-            }
-
-            set
-            {
-                filiale = value;
             }
         }
     }
