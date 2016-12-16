@@ -8,8 +8,27 @@ namespace Supermarkt
 {
     class Mitarbeiter : Person
     {
-        public Mitarbeiter(string firstname, string lastname, int age, DateTime birthdate) : base(firstname, lastname, age, birthdate)
+        string mitarbeiterID;
+
+        public Mitarbeiter(string mitarbeiterID, string firstname, string lastname, int age, DateTime birthdate) : base(firstname, lastname, age, birthdate)
         {
+            if (mitarbeiterID != null)
+                MitarbeiterID = "M" + mitarbeiterID;
+            else
+                throw new Exception("Jeder Mitarbeiter benötigt eine ID!");
+        }
+
+        public string MitarbeiterID
+        {
+            get
+            {
+                return mitarbeiterID;
+            }
+
+            set
+            {
+                mitarbeiterID = value;
+            }
         }
     }
 }
