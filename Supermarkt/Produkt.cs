@@ -8,5 +8,6 @@ namespace Supermarkt
 {
     class Produkt
     {
+        string bezeichnung;
     }
 }

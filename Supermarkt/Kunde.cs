@@ -8,27 +8,10 @@ namespace Supermarkt
 {
     class Kunde : Person
     {
-        string kundenID;
 
-        public Kunde(string kundenID, string firstname, string lastname, int age, DateTime birthdate) : base(firstname, lastname, age, birthdate)
+        public Kunde(string kundenID, string firstname, string lastname, int age, DateTime birthdate) : base("K"+kundenID, firstname, lastname, age, birthdate)
         {
-            if (kundenID != null)
-                KundenID = "K" + kundenID;
-            else
-                throw new Exception("Jeder Kunde benötigt eine ID!");
-        }
-
-        public string KundenID
-        {
-            get
-            {
-                return kundenID;
-            }
-
-            set
-            {
-                kundenID = value;
-            }
+            
         }
     }
 }
