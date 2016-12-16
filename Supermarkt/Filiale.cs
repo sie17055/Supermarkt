@@ -9,7 +9,19 @@ namespace Supermarkt
     class Filiale
     {
         int filialID;
-        string adresse;
+        string adress;
+
+        public Filiale(int filialID, string adress)
+        {
+            if (filialID > 0)
+                FilialID = filialID;
+            else
+                throw new Exception("Ungültige ID! (Filiale)");
+            if (adress != null)
+                Adress = adress;
+            else
+                throw new Exception("Bitte geben Sie eine Addresse ein! (Filiale)");
+        }
 
         public int FilialID
         {
@@ -24,16 +36,16 @@ namespace Supermarkt
             }
         }
 
-        public string Adresse
+        public string Adress
         {
             get
             {
-                return adresse;
+                return adress;
             }
 
             set
             {
-                adresse = value;
+                adress = value;
             }
         }
     }
