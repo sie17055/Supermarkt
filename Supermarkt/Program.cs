@@ -11,6 +11,8 @@ namespace Supermarkt
     {
         static List<Filiale> filialen = new List<Filiale>();
         static List<Produkt> produkte = new List<Produkt>();
+        static List<Mitarbeiter> mitarbeiter = new List<Mitarbeiter>();
+        static List<Kunde> kunden = new List<Kunde>();
         static void Main(string[] args)
         {
             init();
@@ -52,27 +54,26 @@ namespace Supermarkt
                         }
                         produkte.Add(p);
                     }
-                
+                }
+
                 using (StreamReader srPersonen = new StreamReader("../../Personen.csv")) // Personen einlesen
                 {
                     while (srPersonen.Peek() >= 0)
                     {
                         string line = srPersonen.ReadLine();
                         string[] lineParts = line.Split(';');
-                        Produkt p = null;
+                        Person p = null;
                         switch (lineParts[0])
                         {
-                            case "Elektronik":
-                                p = new Elektronikartikel(lineParts[1], lineParts[2], float.Parse(lineParts[3]), float.Parse(lineParts[4]));
+                            case "Kunde":
+                                p = new Kunde(lineParts[1], lineParts[2], lineParts[3], int.Parse(lineParts[4]), lineParts[5], filialen.ElementAt(int.Parse(lineParts[6])), produkte.ElementAt(int.Parse(lineParts[7])));
+                                kunden.Add( (Kunde) p );
                                 break;
-                            case "Haushalt":
-                                p = new Haushaltsartikel(lineParts[1], lineParts[2], float.Parse(lineParts[3]), lineParts[4]);
-                                break;
-                            case "Lebensmittel":
-                                p = new Lebensmittel(lineParts[1], lineParts[2], float.Parse(lineParts[3]), float.Parse(lineParts[4]));
+                            case "Mitarbeiter":
+                                p = new Mitarbeiter(lineParts[1], lineParts[2], lineParts[3], int.Parse(lineParts[4]), lineParts[5], filialen.ElementAt(int.Parse(lineParts[6])));
+                                mitarbeiter.Add( (Mitarbeiter) p );
                                 break;
                         }
-                        produkte.Add(p);
                     }
                 }
             }
