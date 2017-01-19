@@ -14,12 +14,12 @@ namespace Supermarkt
                 
         public Produkt(string id, string bezeichnung, float preis)
         {
-            if (string.IsNullOrWhiteSpace(id))
+            if (!string.IsNullOrWhiteSpace(id))
                 Id = id;
             else
                 throw new Exception("Bitte geben Sie eine ID an!");
 
-            if (string.IsNullOrWhiteSpace(bezeichnung))
+            if (!string.IsNullOrWhiteSpace(bezeichnung))
                 Bezeichnung = bezeichnung;
             else
                 throw new Exception("Bitte geben Sie eine Bezeichnung an!");

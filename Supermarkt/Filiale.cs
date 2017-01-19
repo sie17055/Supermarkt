@@ -10,19 +10,24 @@ namespace Supermarkt
     {
         int filialID;
         string address;
+        string zipcode;
         List<Mitarbeiter> mitarbeiter = new List<Mitarbeiter>();
         List<Kunde> kunden = new List<Kunde>();
 
-        public Filiale(int filialID, string address)
+        public Filiale(int filialID, string address, string zipcode)
         {
             if (filialID > 0)
                 FilialID = filialID;
             else
                 throw new Exception("Ungültige ID! (Filiale)");
-            if (string.IsNullOrWhiteSpace(address))
+            if (!string.IsNullOrWhiteSpace(address))
                 Address = address;
             else
                 throw new Exception("Bitte geben Sie eine Addresse ein! (Filiale)");
+            if (!string.IsNullOrWhiteSpace(zipcode))
+                Zipcode = zipcode;
+            else
+                throw new Exception("Bitte geben Sie eine Postleitzahl an!");
         }
 
         public int FilialID
@@ -74,6 +79,19 @@ namespace Supermarkt
             set
             {
                 kunden = value;
+            }
+        }
+
+        public string Zipcode
+        {
+            get
+            {
+                return zipcode;
+            }
+
+            set
+            {
+                zipcode = value;
             }
         }
     }

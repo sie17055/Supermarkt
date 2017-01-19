@@ -8,23 +8,27 @@ namespace Supermarkt
 {
     class Kunde : Person
     {
-        List<Produkt> gekaufteProdukte = new List<Produkt>();
-        public Kunde(string kundenID, string firstname, string lastname, int age, string address, Filiale filiale) : base("K"+kundenID, firstname, lastname, age, address, filiale)
+        Produkt lieblingsprodukt;
+        public Kunde(string kundenID, string firstname, string lastname, int age, string address, Filiale filiale, Produkt lieblingsprodukt) : base("K"+kundenID, firstname, lastname, age, address, filiale)
         {
             if (age < 14)
-                throw new Exception("Ein Kunde bekommt erst ab 14 Jahren eine Kundenkarte!");
+                throw new Exception("Ein Kunde bekommt erst ab 14 Jahren eine Kundenkarte und wird damit registriert!");
+            if (lieblingsprodukt != null)
+                Lieblingsprodukt = lieblingsprodukt;
+            else
+                throw new Exception("Bitte geben Sie ein Produkt an!");
         }
-
-        internal List<Produkt> GekaufteProdukte
+        
+        internal Produkt Lieblingsprodukt
         {
             get
             {
-                return gekaufteProdukte;
+                return lieblingsprodukt;
             }
 
             set
             {
-                gekaufteProdukte = value;
+                lieblingsprodukt = value;
             }
         }
     }

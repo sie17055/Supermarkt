@@ -17,24 +17,24 @@ namespace Supermarkt
 
         public Person(string id, string firstname, string lastname, int age, string address, Filiale filiale)
         {
-            if (string.IsNullOrWhiteSpace(id))
+            if (!string.IsNullOrWhiteSpace(id))
                 Id = id;
             else
                 throw new Exception("Bitte geben Sie eine ID an!");
 
-            if (string.IsNullOrWhiteSpace(firstname))
+            if (!string.IsNullOrWhiteSpace(firstname))
                 Firstname = firstname;
             else
                 throw new Exception("Bitte geben Sie einen Vornamen an!");
 
-            if (string.IsNullOrWhiteSpace(lastname))
+            if (!string.IsNullOrWhiteSpace(lastname))
                 Lastname = lastname;
             else
                 throw new Exception("Bitte geben Sie einen Nachnamen an!");
 
             Age = age;
 
-            if (string.IsNullOrWhiteSpace(address))
+            if (!string.IsNullOrWhiteSpace(address))
                 Address = address;
             else
                 throw new Exception("Bitte geben Sie eine Addresse an!");
