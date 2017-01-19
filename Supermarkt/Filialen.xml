@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Filialen>
+  <Filiale ID="001">
+    <Adresse>Kaerntnerstrasse 30</Adresse>
+    <PLZ>1010</PLZ>
+  </Filiale>
+  <Filiale ID="002">
+    <Adresse>Mariahilferstrasse 67</Adresse>
+    <PLZ>1060</PLZ>
+  </Filiale>
+  <Filiale ID="003">
+    <Adresse>Linzerstrasse 81</Adresse>
+    <PLZ>1140</PLZ>
+  </Filiale>
+  <Filiale ID="004">
+    <Adresse>Huetteldorferstrasse 237</Adresse>
+    <PLZ>1140</PLZ>
+  </Filiale>
+  <Filiale ID="005">
+    <Adresse>Reinprechtsdorferstrasse 56</Adresse>
+    <PLZ>1050</PLZ>
+  </Filiale>
+  <Filiale ID="006">
+    <Adresse>Vorgartenstrasse 206C</Adresse>
+    <PLZ>1020</PLZ>
+  </Filiale>
+  <Filiale ID="007">
+    <Adresse>Bruenner Strasse 74</Adresse>
+    <PLZ>1210</PLZ>
+  </Filiale>
+  <Filiale ID="008">
+    <Adresse>Wagramerstrasse 81</Adresse>
+    <PLZ>1220</PLZ>
+  </Filiale>
+  <Filiale ID="009">
+    <Adresse>Simmeringer Hauptstrasse 99</Adresse>
+    <PLZ>1110</PLZ>
+  </Filiale>
+  <Filiale ID="010">
+    <Adresse>Favoritenstrasse 128</Adresse>
+    <PLZ>1100</PLZ>
+  </Filiale>
+  <Filiale ID="011">
+    <Adresse>Wienerbergstrasse 11</Adresse>
+    <PLZ>1100</PLZ>
+  </Filiale>
+  <Filiale ID="012">
+    <Adresse>Am Schoepfwerk 29</Adresse>
+    <PLZ>1120</PLZ>
+  </Filiale>
+  <Filiale ID="013">
+    <Adresse>Schönbrunner Strasse 293</Adresse>
+    <PLZ>1120</PLZ>
+  </Filiale>
+  <Filiale ID="014">
+    <Adresse>Thaliastrasse 2</Adresse>
+    <PLZ>1160</PLZ>
+  </Filiale>
+  <Filiale ID="015">
+    <Adresse>Alser Strasse 19</Adresse>
+    <PLZ>1080</PLZ>
+  </Filiale>
+  <Filiale ID="016">
+    <Adresse>Grinzingerstrasse 1190</Adresse>
+    <PLZ>1190</PLZ>
+  </Filiale>
+</Filialen> 
