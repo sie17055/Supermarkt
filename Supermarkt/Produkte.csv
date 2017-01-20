@@ -1,8 +1,8 @@
-E1;Fernseher;600
-E2;Laptop;600
-E3;Tastatur;10
-E4;Computer;500
-E5;Sterero-Anlage;75
+E1;Fernseher;600;295,0
+E2;Laptop;600;60,0
+E3;Tastatur;10;0,5
+E4;Computer;500;200,0
+E5;Stereo-Anlage;75;600
 L1;Hühnchen;1000;8,99
 L2;Haferflocken;500;0,99
 L3;Banane;1000;2,99

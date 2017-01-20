@@ -40,28 +40,4 @@
     <Adresse>Favoritenstrasse 128</Adresse>
     <PLZ>1100</PLZ>
   </Filiale>
-  <Filiale ID="011">
-    <Adresse>Wienerbergstrasse 11</Adresse>
-    <PLZ>1100</PLZ>
-  </Filiale>
-  <Filiale ID="012">
-    <Adresse>Am Schoepfwerk 29</Adresse>
-    <PLZ>1120</PLZ>
-  </Filiale>
-  <Filiale ID="013">
-    <Adresse>Schönbrunner Strasse 293</Adresse>
-    <PLZ>1120</PLZ>
-  </Filiale>
-  <Filiale ID="014">
-    <Adresse>Thaliastrasse 2</Adresse>
-    <PLZ>1160</PLZ>
-  </Filiale>
-  <Filiale ID="015">
-    <Adresse>Alser Strasse 19</Adresse>
-    <PLZ>1080</PLZ>
-  </Filiale>
-  <Filiale ID="016">
-    <Adresse>Grinzingerstrasse 1190</Adresse>
-    <PLZ>1190</PLZ>
-  </Filiale>
 </Filialen> 

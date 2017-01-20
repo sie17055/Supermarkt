@@ -45,10 +45,10 @@ namespace Supermarkt
                             case 'E':
                                 p = new Elektronikartikel(lineParts[0], lineParts[1], float.Parse(lineParts[2]), float.Parse(lineParts[3]));
                                 break;
-                            case 'L':
+                            case 'H':
                                 p = new Haushaltsartikel(lineParts[0], lineParts[1], float.Parse(lineParts[2]), lineParts[3]);
                                 break;
-                            case 'H':
+                            case 'L':
                                 p = new Lebensmittel(lineParts[0], lineParts[1], float.Parse(lineParts[2]), float.Parse(lineParts[3]));
                                 break;
                         }
@@ -56,24 +56,14 @@ namespace Supermarkt
                     }
                 }
 
-                using (StreamReader srPersonen = new StreamReader("../../Personen.csv")) // Personen einlesen
+                using (StreamReader srKunden = new StreamReader("../../kunden.csv")) // Kunden einlesen
                 {
-                    while (srPersonen.Peek() >= 0)
+                    while (srKunden.Peek() >= 0)
                     {
-                        string line = srPersonen.ReadLine();
+                        string line = srKunden.ReadLine();
                         string[] lineParts = line.Split(';');
-                        Person p = null;
-                        switch (lineParts[0])
-                        {
-                            case "Kunde":
-                                p = new Kunde(lineParts[1], lineParts[2], lineParts[3], int.Parse(lineParts[4]), lineParts[5], filialen.ElementAt(int.Parse(lineParts[6])), produkte.ElementAt(int.Parse(lineParts[7])));
-                                kunden.Add( (Kunde) p );
-                                break;
-                            case "Mitarbeiter":
-                                p = new Mitarbeiter(lineParts[1], lineParts[2], lineParts[3], int.Parse(lineParts[4]), lineParts[5], filialen.ElementAt(int.Parse(lineParts[6])));
-                                mitarbeiter.Add( (Mitarbeiter) p );
-                                break;
-                        }
+                        Person p = new Kunde(lineParts[1], lineParts[2], lineParts[3], int.Parse(lineParts[4]), lineParts[5], filialen.ElementAt(int.Parse(lineParts[6])), produkte.ElementAt(int.Parse(lineParts[7])));
+                        kunden.Add( (Kunde) p );
                     }
                 }
             }

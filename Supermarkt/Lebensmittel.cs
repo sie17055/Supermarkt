@@ -9,7 +9,7 @@ namespace Supermarkt
     class Lebensmittel : Produkt
     {
         float gewicht;
-        public Lebensmittel(string id, string bezeichnung, float preis, float gewicht) : base("L"+id, bezeichnung, preis)
+        public Lebensmittel(string id, string bezeichnung, float gewicht, float preis) : base("L"+id, bezeichnung, preis)
         {
             if (gewicht > 0f)
                 Gewicht = gewicht;
