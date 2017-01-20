@@ -69,7 +69,9 @@ namespace Supermarkt
                     {
                         string line = srKunden.ReadLine();
                         string[] lineParts = line.Split(';');
-                        Person p = new Kunde(lineParts[1], lineParts[2], lineParts[3], int.Parse(lineParts[4]), lineParts[5], filialen.ElementAt(int.Parse(lineParts[6])), produkte.ElementAt(int.Parse(lineParts[7])));
+                        string products = lineParts[7];
+                        List<string> gekaufteProdukte = products.Split(',').ToList();
+                        Person p = new Kunde(lineParts[1], lineParts[2], lineParts[3], int.Parse(lineParts[4]), lineParts[5], filialen.ElementAt(int.Parse(lineParts[6])), gekaufteProdukte);
                         kunden.Add( (Kunde) p );
                     }
                 }
