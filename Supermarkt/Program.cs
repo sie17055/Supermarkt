@@ -40,16 +40,16 @@ namespace Supermarkt
                         string line = srProdukte.ReadLine();
                         string[] lineParts = line.Split(';');
                         Produkt p = null;
-                        switch (lineParts[0])
+                        switch (lineParts[0].First())
                         {
-                            case "Elektronik":
-                                p = new Elektronikartikel(lineParts[1], lineParts[2], float.Parse(lineParts[3]), float.Parse(lineParts[4]));
+                            case 'E':
+                                p = new Elektronikartikel(lineParts[0], lineParts[1], float.Parse(lineParts[2]), float.Parse(lineParts[3]));
                                 break;
-                            case "Haushalt":
-                                p = new Haushaltsartikel(lineParts[1], lineParts[2], float.Parse(lineParts[3]), lineParts[4]);
+                            case 'L':
+                                p = new Haushaltsartikel(lineParts[0], lineParts[1], float.Parse(lineParts[2]), lineParts[3]);
                                 break;
-                            case "Lebensmittel":
-                                p = new Lebensmittel(lineParts[1], lineParts[2], float.Parse(lineParts[3]), float.Parse(lineParts[4]));
+                            case 'H':
+                                p = new Lebensmittel(lineParts[0], lineParts[1], float.Parse(lineParts[2]), float.Parse(lineParts[3]));
                                 break;
                         }
                         produkte.Add(p);

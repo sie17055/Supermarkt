@@ -57,6 +57,8 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="ClassDiagram1.cd" />
+    <None Include="kunden.csv" />
+    <None Include="Produkte.csv" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Filialen.xml" />
