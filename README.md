@@ -4,11 +4,11 @@ POS - Projekt
 
 Ein Supermarkt mit mehreren Filialen, Personen, Artikeln
 
-Personen:
+- Personen:
   - Mitarbeiter
   - Kunden
 
-Artikel:
+- Artikel:
   - Elektronikartikel
   - Haushaltsartikel
   - Lebensmittel
