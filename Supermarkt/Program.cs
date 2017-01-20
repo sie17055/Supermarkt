@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using System.Xml.Serialization;
+using System.Xml.Linq;
 
 namespace Supermarkt
 {
@@ -20,18 +22,23 @@ namespace Supermarkt
 
         public static void init()
         {
+            XDocument xFilialen = XDocument.Load("../..Filialen.xml");
+            var data = from filiale in xFilialen.Descendants("Filiale")
+                       select new
+                       {
+                           ID = filiale.Attribute("ID").Value,
+                           Adresse = filiale.Element("Adresse").Value,
+                           PLZ = filiale.Element("PLZ").Value
+                       };
+            foreach (var f in data)
+            {
+                Filiale f1 = new Filiale(int.Parse(f.ID), f.Adresse, f.PLZ);
+                filialen.Add(f1);
+            }
+
             try
             {
-                using (StreamReader srFilialen = new StreamReader("../../Filialen.csv")) // Filialen einlesen
-                {
-                    while (srFilialen.Peek() >= 0)
-                    {
-                        string line = srFilialen.ReadLine();
-                        string[] lineParts = line.Split(';');
-                        Filiale f = new Filiale(int.Parse(lineParts[0]), lineParts[1], lineParts[2]);
-                        filialen.Add(f);
-                    }
-                }
+                       
 
                 using (StreamReader srProdukte = new StreamReader("../../Produkte.csv")) // Produkte einlesen
                 {
