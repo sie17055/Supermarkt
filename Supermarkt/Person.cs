@@ -108,5 +108,10 @@ namespace Supermarkt
                 address = value;
             }
         }
+
+        public override string ToString()
+        {
+            return "Personen-ID: " + Id + "\nName: " + Firstname + " " + Lastname + "\nAlter: " + Age + "\nAdresse: " + Address + "\nFiliale: " + filiale.FilialID;
+        }
     }
 }

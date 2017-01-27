@@ -84,7 +84,13 @@ namespace Supermarkt
 
         public static void abfragen()
         {
-             
+            var erg1 = from kunde in kunden
+                       where kunde.Age < 30
+                       select kunde;
+            foreach (var item in erg1)
+            {
+                Console.WriteLine(item.ToString());
+            }
         }
     }
 }
