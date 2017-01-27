@@ -160,10 +160,20 @@ namespace Supermarkt
 
             Console.WriteLine("**********************************");
 
-            var erg5 = (from produkt in produkte // teuerstes Produkt jeder Gattung
-                        orderby produkt.Preis ascending
-                        select produkt).First();
-            Console.WriteLine("Produktname: " + erg5.Bezeichnung + "\nPreis: " + erg5.Preis);
+            var erg5 = from produkt in produkte
+                       orderby produkt.Preis descending
+                       group produkt by produkt.Id.Substring(0, 1) into res
+                       select new
+                       {
+                           Gattung = res.Key,
+                           Bezeichnung = res.FirstOrDefault().Bezeichnung,
+                           Preis = res.FirstOrDefault().Preis
+                       };
+
+            foreach (var item5 in erg5)
+            {
+                Console.WriteLine(item5.ToString());
+            }
         }
     }
 }

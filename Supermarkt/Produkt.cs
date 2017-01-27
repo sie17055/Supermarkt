@@ -25,7 +25,7 @@ namespace Supermarkt
                 throw new Exception("Bitte geben Sie eine Bezeichnung an!");
 
             //if (preis > 0.00)
-                Id = id;
+            Preis = preis;
             //throw new Exception("Bitte geben Sie einen Preis > 0 an!");
         }
 
@@ -66,6 +66,11 @@ namespace Supermarkt
             {
                 preis = value;
             }
+        }
+
+        public override string ToString()
+        {
+            return base.ToString() + "ID: " + Id + "\nBezeichnung: " + Bezeichnung + "\nPreis: " + Preis;
         }
     }
 }
