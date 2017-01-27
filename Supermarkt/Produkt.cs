@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Supermarkt
 {
-    class Produkt
+    public class Produkt
     {
         string id;
         string bezeichnung;
@@ -24,9 +24,10 @@ namespace Supermarkt
             else
                 throw new Exception("Bitte geben Sie eine Bezeichnung an!");
 
-            //if (preis > 0.00)
-            Preis = preis;
-            //throw new Exception("Bitte geben Sie einen Preis > 0 an!");
+            if (preis > 0)
+                Preis = preis;
+            else
+                throw new Exception("Bitte geben Sie einen Preis > 0 an!");
         }
 
         public string Id

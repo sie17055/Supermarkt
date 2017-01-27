@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Supermarkt
 {
-    class Person
+    public class Person
     {
         string id;
         string firstname;

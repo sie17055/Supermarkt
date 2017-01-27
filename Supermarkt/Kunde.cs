@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Supermarkt
 {
-    class Kunde : Person
+    public class Kunde : Person
     {
         List<string> gekaufteProdukte;
         public Kunde(string kundenID, string firstname, string lastname, int age, string address, Filiale filiale, List<string> gekaufteProdukte) : base("K"+kundenID, firstname, lastname, age, address, filiale)

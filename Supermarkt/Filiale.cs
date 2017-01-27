@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Supermarkt
 {
-    class Filiale
+    public class Filiale
     {
         int filialID;
         string address;

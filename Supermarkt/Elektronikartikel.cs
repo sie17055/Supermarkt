@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Supermarkt
 {
-    class Elektronikartikel : Produkt
+    public class Elektronikartikel : Produkt
     {
         float stromverbrauch;
         public Elektronikartikel(string id, string bezeichnung, float preis, float stromverbrauch) : base("E"+id, bezeichnung, preis)

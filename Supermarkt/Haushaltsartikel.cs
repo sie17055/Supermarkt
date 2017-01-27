@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Supermarkt
 {
-    class Haushaltsartikel : Produkt
+    public class Haushaltsartikel : Produkt
     {
         string typ;
         public Haushaltsartikel(string id, string bezeichnung, float preis, string typ) : base("H"+id, bezeichnung, preis)

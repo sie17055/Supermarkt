@@ -88,25 +88,25 @@ namespace Supermarkt
 
         public static void abfragen()
         {
-            /*var erg1 = from kunde in kunden // Alle Kunden unter 30
+            var erg1 = from kunde in kunden // Alle Kunden unter 30
                        where kunde.Age < 30
                        select kunde;
             foreach (var item1 in erg1)
             {
                 Console.WriteLine(item1.ToString());
                 Console.WriteLine("*************************************");
-            }*/
+            }
 
             Console.WriteLine("===========================================================");
 
-            /*var erg2 = from kunde in kunden // Alle Kunden der Filiale '57 Alenup Heights' (ID=6)
+            var erg2 = from kunde in kunden // Alle Kunden der Filiale '57 Alenup Heights' (ID=6)
                        where kunde.Filiale.FilialID == 6
                        select kunde;
             foreach (var item2 in erg2)
             {
                 Console.WriteLine(item2.ToString());
                 Console.WriteLine("*********************************");
-            }*/
+            }
 
             // alle Kunden mit gleicher Adresse wie Supermarkt-Adresse
 
@@ -158,7 +158,7 @@ namespace Supermarkt
                     break;//Schleife verlassen, weil alle großen Anzahlen ausgegeben wurden
             }
 
-            Console.WriteLine("**********************************");
+            Console.WriteLine("**********************************"); //teuerste Produkte jeder Gattung (Elektroartikel, Lebensmittel, Haushaltsartikel)
 
             var erg5 = from produkt in produkte
                        orderby produkt.Preis descending

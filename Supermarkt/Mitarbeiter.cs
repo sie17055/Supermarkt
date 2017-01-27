@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Supermarkt
 {
-    class Mitarbeiter : Person
+    public class Mitarbeiter : Person
     {
         public Mitarbeiter(string mitarbeiterID, string firstname, string lastname, int age, string address, Filiale filiale) : base("M" + mitarbeiterID, firstname, lastname, age, address, filiale)
         {
