@@ -109,9 +109,22 @@ namespace Supermarkt
             }
         }
 
+        internal Filiale Filiale
+        {
+            get
+            {
+                return filiale;
+            }
+
+            set
+            {
+                filiale = value;
+            }
+        }
+
         public override string ToString()
         {
-            return "Personen-ID: " + Id + "\nName: " + Firstname + " " + Lastname + "\nAlter: " + Age + "\nAdresse: " + Address + "\nFiliale: " + filiale.FilialID;
+            return "Personen-ID: " + Id + "\nName: " + Firstname + " " + Lastname + "\nAlter: " + Age + "\nAdresse: " + Address + "\nFiliale: " + Filiale.FilialID;
         }
     }
 }

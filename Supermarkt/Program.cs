@@ -84,12 +84,33 @@ namespace Supermarkt
 
         public static void abfragen()
         {
-            var erg1 = from kunde in kunden
+            var erg1 = from kunde in kunden // Alle Kunden unter 30
                        where kunde.Age < 30
                        select kunde;
-            foreach (var item in erg1)
+            foreach (var item1 in erg1)
             {
-                Console.WriteLine(item.ToString());
+                Console.WriteLine(item1.ToString());
+            }
+
+            var erg2 = from filiale in filialen // Alle Kunden der Filiale '57 Alenup Heights' (ID=6)
+                       where filiale.FilialID == 6
+                       select new
+                       {
+                           kunden = from kunde in filiale.Kunden
+                           select new
+                           {
+                               KundenID = kunde.Id,
+                               Vorname = kunde.Firstname,
+                               Nachname = kunde.Lastname,
+                               FilialeÍD = kunde.Filiale.FilialID
+                           }                           
+                       };
+            foreach (var item2 in erg2)
+            {
+                foreach (var item2_1 in item2.kunden)
+                {
+                    Console.WriteLine(item2_1.ToString());
+                }
             }
         }
     }
