@@ -11,19 +11,23 @@ namespace Supermarkt
 {
     class Program
     {
-        static List<Filiale> filialen = new List<Filiale>();
-        static List<Produkt> produkte = new List<Produkt>();
-        static List<Mitarbeiter> mitarbeiter = new List<Mitarbeiter>();
-        static List<Kunde> kunden = new List<Kunde>();
+        static List<Filiale> filialen = null;
+        static List<Produkt> produkte = null;
+        static List<Mitarbeiter> mitarbeiter = null;
+        static List<Kunde> kunden = null;
         static void Main(string[] args)
         {
+            filialen = new List<Filiale>();
+            produkte = new List<Produkt>();
+            mitarbeiter = new List<Mitarbeiter>();
+            kunden = new List<Kunde>();
             init();
             abfragen();
         }
 
         public static void init()
         {
-            XDocument xFilialen = XDocument.Load("../..Filialen.xml");
+            XDocument xFilialen = XDocument.Load("../../Filialen.xml");
             var data = from filiale in xFilialen.Descendants("Filiale")
                        select new
                        {
@@ -70,9 +74,9 @@ namespace Supermarkt
                     {
                         string line = srKunden.ReadLine();
                         string[] lineParts = line.Split(';');
-                        string products = lineParts[7];
+                        string products = lineParts[6];
                         List<string> gekaufteProdukte = products.Split(',').ToList();
-                        Person p = new Kunde(lineParts[1], lineParts[2], lineParts[3], int.Parse(lineParts[4]), lineParts[5], filialen.ElementAt(int.Parse(lineParts[6])), gekaufteProdukte);
+                        Person p = new Kunde(lineParts[0], lineParts[1], lineParts[2], int.Parse(lineParts[3]), lineParts[4], filialen.ElementAt(int.Parse(lineParts[5])-1), gekaufteProdukte);
                         kunden.Add( (Kunde) p );
                     }
                 }
@@ -84,34 +88,82 @@ namespace Supermarkt
 
         public static void abfragen()
         {
-            var erg1 = from kunde in kunden // Alle Kunden unter 30
+            /*var erg1 = from kunde in kunden // Alle Kunden unter 30
                        where kunde.Age < 30
                        select kunde;
             foreach (var item1 in erg1)
             {
                 Console.WriteLine(item1.ToString());
-            }
+                Console.WriteLine("*************************************");
+            }*/
 
-            var erg2 = from filiale in filialen // Alle Kunden der Filiale '57 Alenup Heights' (ID=6)
-                       where filiale.FilialID == 6
-                       select new
-                       {
-                           kunden = from kunde in filiale.Kunden
-                           select new
-                           {
-                               KundenID = kunde.Id,
-                               Vorname = kunde.Firstname,
-                               Nachname = kunde.Lastname,
-                               FilialeÍD = kunde.Filiale.FilialID
-                           }                           
-                       };
+            Console.WriteLine("===========================================================");
+
+            /*var erg2 = from kunde in kunden // Alle Kunden der Filiale '57 Alenup Heights' (ID=6)
+                       where kunde.Filiale.FilialID == 6
+                       select kunde;
             foreach (var item2 in erg2)
             {
-                foreach (var item2_1 in item2.kunden)
+                Console.WriteLine(item2.ToString());
+                Console.WriteLine("*********************************");
+            }*/
+
+            // alle Kunden mit gleicher Adresse wie Supermarkt-Adresse
+
+            foreach (var item3 in filialen)
+            {
+                foreach (var item3_2 in kunden)
                 {
-                    Console.WriteLine(item2_1.ToString());
+                    if (item3_2.Address.Equals(item3.Address))
+                    {
+                        Console.WriteLine(item3_2.ToString());
+                        Console.WriteLine("Filialen-Adresse: " + item3.Address);
+                        Console.WriteLine("******************************");
+                    }
                 }
             }
+
+            var erg4 = from kunde in kunden // Meistgekauftes Produkt von Kunde 'Lucile Cohen'
+                       where kunde.Firstname.Equals("Lucile") && kunde.Lastname.Equals("Cohen")
+                       select new
+                       {
+                           Vorname = kunde.Firstname,
+                           Nachname = kunde.Lastname,
+                           Lieblingsprodukt = kunde.GekaufteProdukte
+                       };            
+            var counts = erg4.FirstOrDefault().Lieblingsprodukt.Distinct().ToDictionary( // Alle einzigartigen Elemente
+                x => x, // Schlüssel auswählen (Wert selbst)
+                x => erg4.FirstOrDefault().Lieblingsprodukt.Count(y => y == x) // Anzahl der Elemente ermitteln
+                );
+            KeyValuePair<string, int> max = new KeyValuePair<string, int>(); // Aktuell am meisten vorkommendes Element
+            counts.LastOrDefault(x =>
+            {
+                if (x.Value > max.Value)
+                    max = x;
+                return x.Value > max.Value;
+            }); // Letztes Element (größtes) auswählen
+
+            Console.WriteLine("Meistgekaufte Produkte von '" + erg4.FirstOrDefault().Vorname + " " + erg4.FirstOrDefault().Nachname +"'");
+
+            var counts2 = counts.OrderByDescending(x => x.Value);//Dictionary anhand der Anzahl absteigend ordnen
+
+            int cnt = counts2.First().Value;//Maximale Anzahl
+            foreach (var c in counts2)
+            {
+                if (c.Value >= cnt)//Ausgeben, wenn nicht kleiner als das letzte Element
+                {
+                    Console.WriteLine("Produkt: {0}  Anzahl: {1}", c.Key, c.Value);
+                }
+                else
+                    break;//Schleife verlassen, weil alle großen Anzahlen ausgegeben wurden
+            }
+
+            Console.WriteLine("**********************************");
+
+            var erg5 = (from produkt in produkte // teuerstes Produkt jeder Gattung
+                        orderby produkt.Preis ascending
+                        select produkt).First();
+            Console.WriteLine("Produktname: " + erg5.Bezeichnung + "\nPreis: " + erg5.Preis);
         }
     }
 }

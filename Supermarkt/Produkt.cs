@@ -24,9 +24,9 @@ namespace Supermarkt
             else
                 throw new Exception("Bitte geben Sie eine Bezeichnung an!");
 
-            if (preis > 0f)
+            //if (preis > 0.00)
                 Id = id;
-            throw new Exception("Bitte geben Sie einen Preis > 0 an!");
+            //throw new Exception("Bitte geben Sie einen Preis > 0 an!");
         }
 
         public string Id

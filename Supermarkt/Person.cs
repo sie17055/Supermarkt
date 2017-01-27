@@ -41,6 +41,10 @@ namespace Supermarkt
 
             if (filiale == null)
                 throw new Exception("Ungültige Filialen-ID!");
+            else
+            {
+                Filiale = filiale;
+            }
 
         }
 

@@ -1,42 +1,42 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Filialen>
-  <Filiale ID="001">
+  <Filiale ID="1">
     <Adresse>894 Ticwih Center</Adresse>
     <PLZ>M5G</PLZ>
   </Filiale>
-  <Filiale ID="002">
+  <Filiale ID="2">
     <Adresse>1675 Ofaci Drive</Adresse>
     <PLZ>M5T</PLZ>
   </Filiale>
-  <Filiale ID="003">
+  <Filiale ID="3">
     <Adresse>1752 Meko Manor</Adresse>
     <PLZ>M5R</PLZ>
   </Filiale>
-  <Filiale ID="004">
+  <Filiale ID="4">
     <Adresse>420 Fapno Place</Adresse>
     <PLZ>M5E</PLZ>
   </Filiale>
-  <Filiale ID="005">
+  <Filiale ID="5">
     <Adresse>497 Wikos Place</Adresse>
     <PLZ>M5K</PLZ>
   </Filiale>
-  <Filiale ID="006">
+  <Filiale ID="6">
     <Adresse>57 Alenup Heights</Adresse>
     <PLZ>M5A</PLZ>
   </Filiale>
-  <Filiale ID="007">
+  <Filiale ID="7">
     <Adresse>693 Vohup Terrace</Adresse>
     <PLZ>M5B</PLZ>
   </Filiale>
-  <Filiale ID="008">
+  <Filiale ID="8">
     <Adresse>844 Titjak Square</Adresse>
     <PLZ>M5L</PLZ>
   </Filiale>
-  <Filiale ID="009">
+  <Filiale ID="9">
     <Adresse>1048 Lupma Center</Adresse>
     <PLZ>M5O</PLZ>
   </Filiale>
-  <Filiale ID="010">
+  <Filiale ID="10">
     <Adresse>289 Mezus Boulevard</Adresse>
     <PLZ>M5W</PLZ>
   </Filiale>
