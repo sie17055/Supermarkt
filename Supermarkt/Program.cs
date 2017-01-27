@@ -84,7 +84,7 @@ namespace Supermarkt
 
         public static void abfragen()
         {
-
+             
         }
     }
 }
