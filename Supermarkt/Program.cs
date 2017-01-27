@@ -18,6 +18,7 @@ namespace Supermarkt
         static void Main(string[] args)
         {
             init();
+            abfragen();
         }
 
         public static void init()
@@ -79,6 +80,11 @@ namespace Supermarkt
             catch (Exception e) {
                 Console.WriteLine("FEHLER beim Lesen des Files: " + e.ToString());
             }
+        }
+
+        public static void abfragen()
+        {
+
         }
     }
 }
